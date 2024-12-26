@@ -1,13 +1,17 @@
-<h1 class="text-center my-4">Nova Lista</h1>
+<div class="page-body d-flex flex-column align-items-center justify-content-center" style="min-height: 80vh;">
+  <h1 class="text-center my-4" style="font-size: 36px;">Nova Lista</h1>
 
-<div class="d-flex justify-content-center align-items-start" style="min-height: 80vh;">
-  <div class="card p-4 shadow-sm" style="max-width: 700px; width: 100%;">
+  <div class="card p-4 shadow-sm custom-card no-hover" style="max-width: 700px; width: 100%;">
     <%= form_with model: @list, local: true do |form| %>
       <div class="mb-3">
         <%= form.label :name, 'Nome da Lista', class: 'form-label' %>
         <%= form.text_field :name, class: 'form-control' %>
       </div>
-      <%= form.submit 'Criar Lista', class: 'btn btn-primary w-100' %>
+      <div class="d-flex justify-content-between">
+        <%= form.submit 'Criar Lista', class: 'btn btn-primary w-100 me-2' %>
+        <%= link_to 'Cancelar', lists_path, class: 'btn btn-secondary w-100' %>
+      </div>
     <% end %>
+  </div>
   </div>
 </div>

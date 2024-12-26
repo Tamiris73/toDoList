@@ -1,7 +1,8 @@
-<h1 class="text-center my-4">Listas de Tarefas</h1>
-
-<div class="text-center mb-4">
-  <%= link_to 'Nova Lista', new_list_path, class: 'btn btn-primary' %>
+<div class="header-container text-light">
+  <h1 class="header-title">Listas de Tarefas</h1>
+  <div class="text-end mb-4">
+    <%= link_to 'Nova Lista', new_list_path, class: 'btn btn-primary btn-lg' %>
+  </div>
 </div>
 
 <div class="container">
@@ -15,13 +16,13 @@
               <i class="fas fa-tasks text-primary"></i>
             </h5>
             <p class="card-text text-muted">Criada em: <%= list.created_at.strftime("%d/%m/%Y") %></p>
-            <div class="d-flex justify-content-between">
-              <%= link_to edit_list_path(list), class: 'btn btn-sm btn-outline-secondary' do %>
-                <i class="fas fa-pen"></i> Editar
+            <div class="d-flex justify-content-end"> 
+              <%= link_to edit_list_path(list), class: 'btn btn-sm btn-outline-secondary me-2' do %>
+                <i class="fas fa-pen"></i>
               <% end %>
-                <%= button_to list_path(list), method: :delete, data: { confirm: 'Tem certeza que deseja excluir esta lista e todas as suas tarefas?' }, class: 'btn btn-sm btn-outline-danger text-decoration-none' do %>
-  <i class="fas fa-trash"></i> Excluir
-<% end %>
+              <%= button_to list_path(list), method: :delete, data: { confirm: 'Tem certeza que deseja excluir esta lista e todas as suas tarefas?' }, class: 'btn btn-sm btn-outline-danger' do %>
+                <i class="fas fa-trash"></i> 
+              <% end %>
             </div>
           </div>
         </div>
