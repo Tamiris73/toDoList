@@ -1,16 +1,41 @@
-<h1 class="text-center my-4">Editar Tarefa</h1>
-<div class="d-flex justify-content-center">
-  <div class="card p-4 shadow-sm" style="max-width: 400px; width: 100%;">
+<div class="page-body d-flex flex-column align-items-center justify-content-center" style="min-height: 80vh;">
+  <h1 class="text-center my-4" style="font-size: 36px;">Editar Tarefa da Lista: <%= @task.list.name %></h1>
+  <div class="card p-4 shadow-sm custom-card no-hover" style="max-width: 700px; width: 100%;">
     <%= form_with model: [@task.list, @task], local: true do |form| %>
       <div class="mb-3">
         <%= form.label :description, 'Descrição da Tarefa', class: 'form-label' %>
         <%= form.text_field :description, class: 'form-control', style: ('text-decoration: line-through;' if @task.completed) %>
       </div>
-      <div class="mb-3 form-check">
-        <%= form.check_box :completed, { class: 'form-check-input' }, 'true', 'false' %>
+      <div class="mb-3 d-flex align-items-center">
+        <span class="me-2" style="cursor: pointer;" onclick="toggleCompletion(this)">
+          <i class="fas <%= @task.completed ? 'fa-check-circle' : 'fa-circle' %>" id="completion-icon" style="color: <%= @task.completed ? '#28a745' : '#dc3545' %>;"></i>
+        </span>
+        <%= form.hidden_field :completed, value: @task.completed %>
         <%= form.label :completed, 'Concluída?', class: 'form-check-label' %>
       </div>
-      <%= form.submit 'Atualizar Tarefa', class: 'btn btn-primary w-100' %>
+      <div class="d-flex justify-content-between">
+        <%= form.submit 'Atualizar Tarefa', class: 'btn btn-primary w-100 me-2' %>
+        <%= link_to 'Cancelar', list_path(@task.list), class: 'btn btn-secondary w-100' %>
+      </div>
     <% end %>
   </div>
 </div>
+
+<script>
+  function toggleCompletion(element) {
+    const icon = element.querySelector('i');
+    const hiddenField = document.querySelector('input[name="task[completed]"]');
+
+    if (hiddenField.value === "true") {
+      hiddenField.value = "false";
+      icon.classList.remove('fa-check-circle');
+      icon.classList.add('fa-circle');
+      icon.style.color = '#dc3545'; // Red color for incomplete
+    } else {
+      hiddenField.value = "true";
+      icon.classList.remove('fa-circle');
+      icon.classList.add('fa-check-circle');
+      icon.style.color = '#28a745'; // Green color for complete
+    }
+  }
+</script>

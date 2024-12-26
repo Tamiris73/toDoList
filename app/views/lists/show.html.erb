@@ -1,8 +1,9 @@
-<h1 class="text-center my-4"><%= @list.name %></h1>
-
-<div class="d-flex justify-content-center mb-4">
-  <%= link_to 'Voltar', lists_path, class: 'btn btn-secondary mx-2' %>
-  <%= link_to 'Adicionar Tarefa', new_list_task_path(@list), class: 'btn btn-primary' %>
+<div class="header-container text-light">
+  <h1 class="header-title"><%= @list.name %></h1>
+  <div class="d-flex justify-content-end mb-4">
+    <%= link_to 'Voltar', lists_path, class: 'btn btn-secondary btn-lg me-2' %>
+    <%= link_to 'Adicionar Tarefa', new_list_task_path(@list), class: 'btn btn-primary btn-lg' %>
+  </div>
 </div>
 
 <h2 class="text-center my-4">Tarefas</h2>
@@ -11,7 +12,9 @@
     <li class="list-group-item d-flex justify-content-between align-items-center">
       <span class="<%= 'text-decoration-line-through' if task.completed %>">
         <%= task.description %> 
-        (<%= task.completed ? 'Concluída' : 'Pendente' %>)
+        (<span class="<%= task.completed ? 'text-success' : 'text-danger' %>">
+          <%= task.completed ? 'Concluída' : 'Pendente' %>
+        </span>)
       </span>
       <div class="d-flex">
         <%= link_to edit_list_task_path(@list, task), class: 'btn btn-sm btn-info mx-1' do %>
