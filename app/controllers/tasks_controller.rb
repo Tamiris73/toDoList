@@ -9,9 +9,9 @@ class TasksController < ApplicationController
     @task = @list.tasks.new(task_params)
 
     if @task.save
-      redirect_to @list, notice: 'Tarefa adicionada com sucesso!'
+      redirect_to @list, notice: "Tarefa adicionada com sucesso!"
     else
-      render :new, alert: 'Erro ao adicionar tarefa.' # Redirecionando de volta ao form de criação
+      render :new, alert: "Erro ao adicionar tarefa. "
     end
   end
 
@@ -22,7 +22,7 @@ class TasksController < ApplicationController
   def update
     @task = Task.find(params[:id])
     if @task.update(task_params)
-      redirect_to list_path(@task.list), notice: 'Tarefa atualizada com sucesso!'
+      redirect_to list_path(@task.list), notice: "Tarefa atualizada com sucesso!"
     else
       render :edit
     end
@@ -31,7 +31,7 @@ class TasksController < ApplicationController
   def destroy
     @task = Task.find(params[:id])
     @task.destroy
-    redirect_to list_path(params[:list_id]), notice: 'Tarefa excluída com sucesso!'
+    redirect_to list_path(params[:list_id]), notice: "Tarefa excluída com sucesso!"
   end
 
   private
