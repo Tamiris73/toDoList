@@ -1,0 +1,18 @@
+<h1 class="text-center my-4">Editar Tarefa</h1>
+<div class="d-flex justify-content-center">
+  <div class="card p-4 shadow-sm" style="max-width: 400px; width: 100%;">
+    <%= form_with(model: [@list, @task], local: true) do |form| %>
+      <div class="mb-3">
+        <%= form.label :description, 'Descrição', class: 'form-label' %>
+        <%= form.text_field :description, class: 'form-control', style: ('text-decoration: line-through;' if @task.completed) %>
+      </div>
+      <div class="mb-3 form-check">
+        <%= form.check_box :completed, { class: 'form-check-input' }, 'true', 'false' %>
+        <%= form.label :completed, 'Concluída?', class: 'form-check-label' %>
+      </div>
+      <div>
+        <%= form.submit 'Atualizar Tarefa', class: 'btn btn-primary w-100' %>
+      </div>
+    <% end %>
+  </div>
+</div>

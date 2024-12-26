@@ -1,0 +1,26 @@
+<h1 class="text-center my-4"><%= @list.name %></h1>
+
+<div class="d-flex justify-content-center mb-4">
+  <%= link_to 'Voltar', lists_path, class: 'btn btn-secondary mx-2' %>
+  <%= link_to 'Adicionar Tarefa', new_list_task_path(@list), class: 'btn btn-primary' %>
+</div>
+
+<h2 class="text-center my-4">Tarefas</h2>
+<ul class="list-group" style="max-width: 600px; margin: 0 auto;">
+  <% @list.tasks.each do |task| %>
+    <li class="list-group-item d-flex justify-content-between align-items-center">
+      <span class="<%= 'text-decoration-line-through' if task.completed %>">
+        <%= task.description %> 
+        (<%= task.completed ? 'Concluída' : 'Pendente' %>)
+      </span>
+      <div class="d-flex">
+        <%= link_to edit_list_task_path(@list, task), class: 'btn btn-sm btn-info mx-1' do %>
+          <i class="fas fa-edit"></i>
+        <% end %>
+        <%= button_to list_task_path(@list, task), method: :delete, data: { "turbo-method": :delete, confirm: 'Tem certeza que deseja excluir esta tarefa?' }, class: 'btn btn-sm btn-danger mx-1' do %>
+          <i class="fas fa-trash-alt"></i>
+        <% end %>
+      </div>
+    </li>
+  <% end %>
+</ul>
