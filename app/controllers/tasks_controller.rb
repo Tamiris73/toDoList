@@ -1,6 +1,6 @@
 class TasksController < ApplicationController
-  before_action :set_list, only: [:new, :create, :edit, :update, :destroy]
-  before_action :set_task, only: [:edit, :update, :destroy]
+  before_action :set_list, only: [ :new, :create, :edit, :update, :destroy ]
+  before_action :set_task, only: [ :edit, :update, :destroy ]
 
   def new
     @task = @list.tasks.new
@@ -8,7 +8,7 @@ class TasksController < ApplicationController
 
   def create
     @task = @list.tasks.new(task_params)
-    @task.user = current_user  
+    @task.user = current_user
 
     if @task.save
       redirect_to @list, notice: "Tarefa adicionada com sucesso!"
