@@ -21,7 +21,7 @@ gem "popper_js", "~> 2.11"
 gem "sassc-rails"
 gem "font-awesome-sass", "~> 6.1.2"
 gem "devise"
-ruby '3.4.1'
+ruby "3.4.1"
 
 
 # Use Active Model has_secure_password [https://guides.rubyonrails.org/active_model_basics.html#securepassword]
