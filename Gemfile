@@ -19,7 +19,7 @@ gem "jbuilder"
 gem "bootstrap", "~> 5.3"
 gem "popper_js", "~> 2.11"
 gem "sassc-rails"
-gem "font-awesome-sass", "~> 6.1.2"
+gem "font-awesome-sass", "~> 6.7.2"
 gem "devise"
 ruby "3.4.1"
 
