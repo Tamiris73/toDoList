@@ -1,12 +1,8 @@
-<div class="header-container text-light">
-  <h1 class="header-title">Listas de Tarefas</h1>
-  <div class="text-end mb-4">
-    <%= link_to 'Nova Lista', new_list_path, class: 'btn btn-primary btn-lg' %>
-  </div>
-</div>
-
 <div class="container">
   <div class="row g-3">
+  <div class="text-end mb-4">
+    <%= link_to 'Nova Lista', new_list_path, class: 'btn btn-primary btn-lg rounded-3' %>
+  </div>
     <% @lists.each do |list| %>
       <div class="col-md-4">
         <div class="card shadow-sm">

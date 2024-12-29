@@ -35,18 +35,22 @@ h1 {
 }
 
 .header-container .btn {
-  border-radius: 25px;
   position: absolute;
-  top: 20px;
+  top: 30px;
   right: 20px;
 }
 
 .header-container .btn-secondary {
-  border-radius: 25px;
   position: absolute;
-  top: 20px;
+  top: 30px;
   right: 200px;
 }
+
+.custom-register-btn {
+  right: 130px !important;
+  position: relative; 
+}
+
 
 .container {
   margin-top: 20px; 
@@ -78,4 +82,9 @@ h1 {
 
 .list-group-item span {
   flex-grow: 1; 
+}
+
+.btn-danger {
+  top: 50px !important;
+  right: 200px;
 }
