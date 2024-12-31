@@ -1,24 +1,22 @@
-# README
+# TodoList App
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Este é um aplicativo web de lista de tarefas (TodoList), desenvolvido com **Ruby on Rails** e implantado no **Fly.io**. Ele oferece funcionalidades essenciais para o gerenciamento de tarefas diárias de forma simples e eficiente.
 
-Things you may want to cover:
+## Tecnologias Utilizadas
 
-* Ruby version
+- **Ruby on Rails**: Framework principal para o desenvolvimento do backend e frontend.
+- **Puma**: Servidor web utilizado para rodar a aplicação.
+- **Fly.io**: Plataforma para deploy da aplicação.
+- **PostgreSQL**: Banco de dados relacional para armazenar as tarefas.
+- **Docker**: Facilita a criação de ambientes consistentes para desenvolvimento e produção.
 
-* System dependencies
+## Funcionalidades
 
-* Configuration
+- **Gerenciamento de Tarefas**:
+  - Criar novas tarefas.
+  - Editar tarefas existentes.
+  - Excluir tarefas.
+  - Listar todas as tarefas.
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+- **Persistência de Dados**:
+  - As tarefas são armazenadas em um banco de dados PostgreSQL.
